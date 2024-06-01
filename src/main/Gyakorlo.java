@@ -1,4 +1,4 @@
-package gyakorlo;
+package main;
 
 public class Gyakorlo {
 
