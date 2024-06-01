@@ -9,15 +9,7 @@ public class Gyakorlo {
     private static void feladatok() {
         progtetelek();
         kiirKonzolra("");
-    }
-    
-    private static int osszegzes(){
-        return 0;
-    }
-    
-    private static void kiirKonzolra(String kimenet) {
-        System.out.println(kimenet);
-    }
+    }    
 
     private static void progtetelek() {
         osszegzes();
@@ -30,6 +22,10 @@ public class Gyakorlo {
         linKereses();
     }
 
+    private static int osszegzes(){
+        return 0;
+    }
+    
     private static int megszamolas() {
         return 0;
     }
@@ -56,6 +52,10 @@ public class Gyakorlo {
     
     private static int linKereses() {
         return 0;
+    }
+    
+    private static void kiirKonzolra(String kimenet) {
+        System.out.println(kimenet);
     }
     
 }
