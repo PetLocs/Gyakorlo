@@ -12,6 +12,7 @@ public class Gyakorlo {
     }
 
     private static void feladatok() {
+        feltoltes();
         progtetelek();
         kiirKonzolra("");
     }    
@@ -61,6 +62,10 @@ public class Gyakorlo {
     
     private static void kiirKonzolra(String kimenet) {
         System.out.println(kimenet);
+    }
+
+    private static void feltoltes() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
 }
