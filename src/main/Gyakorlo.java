@@ -6,6 +6,7 @@ public class Gyakorlo {
     static int[] sorozat = new int[N];
     static int min = -2;
     static int max = 10;
+    static String kimenet = "";
     
     public static void main(String[] args) {
         feladatok();
@@ -14,7 +15,7 @@ public class Gyakorlo {
     private static void feladatok() {
         feltoltes();
         progtetelek();
-        kiirKonzolra("");
+        kiirKonzolra();
     }    
 
     private static void progtetelek() {
@@ -82,7 +83,7 @@ public class Gyakorlo {
         return 0;
     }
     
-    private static void kiirKonzolra(String kimenet) {
+    private static void kiirKonzolra() {
         System.out.println(kimenet);
     }
 
