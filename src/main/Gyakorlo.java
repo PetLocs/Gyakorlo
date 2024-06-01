@@ -65,7 +65,9 @@ public class Gyakorlo {
     }
 
     private static void feltoltes() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        for (int elem : sorozat) {
+            elem = (int)(Math.random() * (max - min) + min);
+        }
     }
     
 }
