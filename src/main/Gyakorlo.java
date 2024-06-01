@@ -7,7 +7,11 @@ public class Gyakorlo {
     }
 
     private static void feladatok() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        kiirKonzolra("");
+    }
+
+    private static void kiirKonzolra(String kimenet) {
+        System.out.println(kimenet);
     }
     
 }
