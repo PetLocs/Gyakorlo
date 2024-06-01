@@ -7,7 +7,9 @@ public class Gyakorlo {
     static int min = -2;
     static int max = 10;
     static String kimenet = "";
-    static int feltetel = 4;
+    static int feltetel1 = 4;
+    static int feltetel2 = 2;
+    static int feltetel3 = 0;
     
     public static void main(String[] args) {
         feladatok();
@@ -21,13 +23,13 @@ public class Gyakorlo {
 
     private static void progtetelek() {
         osszegzes();
-        megszamolas(feltetel); //kisebb mint paraméter
+        megszamolas(feltetel1); //kisebb mint paraméter
         minKivalasztas();
         maxKivalasztas();
-        kivalasztas();
+        kivalasztas(feltetel2); //paraméter indexű elem
         eldontesEgy();
         eldontesMind();
-        linKereses();
+        linKereses(feltetel2);
     }
 
     private static int osszegzes(){
@@ -68,8 +70,12 @@ public class Gyakorlo {
         return max;
     }
     
-    private static int kivalasztas() {
-        return 0;
+    private static int kivalasztas(int feltetel) {
+        int index = 0;
+        while (sorozat[index] != sorozat[feltetel]) {
+            index++;
+        }
+        return sorozat[feltetel];
     }
 
     private static boolean eldontesEgy() {
@@ -80,8 +86,20 @@ public class Gyakorlo {
         return false;
     }
     
-    private static int linKereses() {
-        return 0;
+    private static int linKereses(int feltetel) {
+        int index = 0;
+        while (sorozat[index] != feltetel) {
+            if (index < N -1) {
+                index++;
+            }else{
+                break;
+            }
+        }
+        if (index < N - 1) {
+            return index + 1;
+        }else{
+            return -1;            
+        }
     }
     
     private static void kiirKonzolra() {
@@ -90,9 +108,16 @@ public class Gyakorlo {
             kimenet += elem + " ";
         }        
         kimenet += "]\nÖsszege: " + osszegzes() + "\n";
-        kimenet += "kisebb, mint " + feltetel + ": " + megszamolas(feltetel) + " db\n";
+        kimenet += "kisebb, mint " + feltetel1 + ": " + megszamolas(feltetel1) + " db\n";
         kimenet += "Minimuma: " + minKivalasztas() + "\n";
         kimenet += "Maximuma: " + maxKivalasztas() + "\n";
+        kimenet += (feltetel2 + 1) + ". elem: " + kivalasztas(feltetel2) + "\n";
+        kimenet += feltetel3 + " hol szerepel először? ";
+        if (linKereses(feltetel3) == -1) {
+            kimenet += "Nincs iyen elem!\n" ;
+        }else{
+            kimenet += linKereses(feltetel3) + ". helyen\n";            
+        }
         System.out.println(kimenet);
     }
 
