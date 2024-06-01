@@ -19,7 +19,7 @@ public class Gyakorlo {
 
     private static void progtetelek() {
         osszegzes();
-        megszamolas();
+        megszamolas(4); //kisebb mint paraméter
         minKivalasztas();
         maxKivalasztas();
         kivalasztas();
@@ -36,8 +36,14 @@ public class Gyakorlo {
         return sum;
     }
     
-    private static int megszamolas() {
-        return 0;
+    private static int megszamolas(int feltetel) {
+        int szamlalo = 0;
+        for (int elem : sorozat) {
+            if (elem < feltetel) {
+                szamlalo++;
+            }
+        }
+        return szamlalo;
     }
 
     private static int minKivalasztas() {
