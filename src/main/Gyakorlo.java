@@ -29,7 +29,11 @@ public class Gyakorlo {
     }
 
     private static int osszegzes(){
-        return 0;
+        int sum = 0;
+        for (int elem : sorozat) {
+            sum += elem;
+        }
+        return sum;
     }
     
     private static int megszamolas() {
