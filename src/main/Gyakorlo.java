@@ -3,7 +3,7 @@ package main;
 public class Gyakorlo {
 
     static final int N = 5;
-    static int[] sorozat = new int[N];
+    static int[] sorozat = new int[N]; //{-2, 4, 7, 10, 0};
     static int min = -2;
     static int max = 10;
     static String kimenet = "";
@@ -84,12 +84,16 @@ public class Gyakorlo {
     }
     
     private static void kiirKonzolra() {
+        kimenet += "A tömb elemei:\n";
+        for (int elem : sorozat) {
+            kimenet += elem + " ";
+        }
         System.out.println(kimenet);
     }
 
     private static void feltoltes() {
         for (int elem : sorozat) {
-            elem = (int)(Math.random() * (max - min) + min);
+            elem = (int)((Math.random() * (max - min)) + min);
         }
     }
     
