@@ -2,6 +2,11 @@ package main;
 
 public class Gyakorlo {
 
+    static final int N = 5;
+    static int[] sorozat = new int[N];
+    static int min = -2;
+    static int max = 10;
+    
     public static void main(String[] args) {
         feladatok();
     }
