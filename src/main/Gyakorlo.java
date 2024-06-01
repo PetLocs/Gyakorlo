@@ -10,7 +10,8 @@ public class Gyakorlo {
     static int feltetel_01 = 4;
     static int feltetel_02 = 2;
     static int feltetel_03 = 3;
-    static int feltetel_04 = 7;
+    static int feltetel_04 = 10;
+    static int feltetel_05 = 7;
     
     public static void main(String[] args) {
         feladatok();
@@ -81,7 +82,7 @@ public class Gyakorlo {
 
     private static boolean eldontesEgy() {
         int index = 0;
-        while (index < N && sorozat[index] >= feltetel_03) {
+        while (index < N && !(sorozat[index] < feltetel_03)) {
             index++;
         }
         return index < N;
@@ -89,7 +90,7 @@ public class Gyakorlo {
     
     private static boolean eldontesMind() {
         int index = 0;
-        while (index < N && sorozat[index] >10) {
+        while (index < N && sorozat[index] > feltetel_04) {
             index++;
         }
         return index >= N;
@@ -126,10 +127,10 @@ public class Gyakorlo {
         kimenet += "Van-e olyan szám, ami kisebb, mint " + feltetel_03 + "? ";
         kimenet += eldontesEgy() ? "Van.\n" : "Nincs.\n";
         /* eldöntésMind */
-        kimenet += "Van-e olyan szám, ami nagyobb, mint " + feltetel_03 + "? ";
+        kimenet += "Van-e olyan szám, ami nagyobb, mint " + feltetel_04 + "? ";
         kimenet += eldontesEgy() ? "Van.\n" : "Nincs.\n";
         /* linKeresés */
-        kimenet += "Első szám, ami nagyobb, mint " + feltetel_04 + "? ";
+        kimenet += "Első szám, ami nagyobb, mint " + feltetel_05 + "? ";
         kimenet += linKereses() == -1 ? "Nincs iyen elem!\n" : linKereses() + ". helyen\n";      
         System.out.println(kimenet);
     }
