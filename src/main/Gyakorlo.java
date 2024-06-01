@@ -57,7 +57,13 @@ public class Gyakorlo {
     }
 
     private static int maxKivalasztas() {
-        return 0;
+        int max = sorozat[0];
+        for (int elem : sorozat) {
+            if (elem > max) {
+                max = elem;
+            }
+        }
+        return max;
     }
     
     private static int kivalasztas() {
