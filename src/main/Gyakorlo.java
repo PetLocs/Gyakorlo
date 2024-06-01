@@ -7,9 +7,10 @@ public class Gyakorlo {
     static int min = -2;
     static int max = 10;
     static String kimenet = "";
-    static int feltetel1 = 4;
-    static int feltetel2 = 2;
-    static int feltetel3 = 0;
+    static int feltetel_01 = 4;
+    static int feltetel_02 = 2;
+    static int feltetel_03 = 7;
+    static int feltetel_04 = 3;
     
     public static void main(String[] args) {
         feladatok();
@@ -23,13 +24,13 @@ public class Gyakorlo {
 
     private static void progtetelek() {
         osszegzes();
-        megszamolas(feltetel1); //kisebb mint paraméter
+        megszamolas(feltetel_01); //kisebb mint paraméter
         minKivalasztas();
         maxKivalasztas();
-        kivalasztas(feltetel2); //paraméter indexű elem
-        eldontesEgy();
+        kivalasztas(feltetel_02); //paraméter indexű elem
+        eldontesEgy(feltetel_04);
         eldontesMind();
-        linKereses(feltetel2);
+        linKereses(feltetel_02); //első paraméternél nagyobb elem
     }
 
     private static int osszegzes(){
@@ -78,8 +79,16 @@ public class Gyakorlo {
         return sorozat[feltetel];
     }
 
-    private static boolean eldontesEgy() {
-        return false;
+    private static boolean eldontesEgy(int feltetel) {
+        int index = 0;
+        while (index < N && sorozat[index] <= feltetel) {
+            index++;
+        }
+        if (index < N ){
+            return true;
+        }else{
+            return false;            
+        }
     }
     
     private static boolean eldontesMind() {
@@ -88,14 +97,14 @@ public class Gyakorlo {
     
     private static int linKereses(int feltetel) {
         int index = 0;
-        while (sorozat[index] != feltetel) {
-            if (index < N -1) {
-                index++;
+        while (sorozat[index] <= feltetel) {
+            index++;
+            if (index < N) {
             }else{
-                break;
+                return -1;
             }
         }
-        if (index < N - 1) {
+        if (index < N) {
             return index + 1;
         }else{
             return -1;            
@@ -106,23 +115,29 @@ public class Gyakorlo {
         kimenet += "A tömb elemei: \n[ ";
         for (int elem : sorozat) {
             kimenet += elem + " ";
-        }        
-        kimenet += "]\nÖsszege: " + osszegzes() + "\n";
-        kimenet += "kisebb, mint " + feltetel1 + ": " + megszamolas(feltetel1) + " db\n";
-        kimenet += "Minimuma: " + minKivalasztas() + "\n";
-        kimenet += "Maximuma: " + maxKivalasztas() + "\n";
-        kimenet += (feltetel2 + 1) + ". elem: " + kivalasztas(feltetel2) + "\n";
-        kimenet += feltetel3 + " hol szerepel először? ";
-        if (linKereses(feltetel3) == -1) {
-            kimenet += "Nincs iyen elem!\n" ;
-        }else{
-            kimenet += linKereses(feltetel3) + ". helyen\n";            
         }
+        /* összegzés */
+        kimenet += "]\nÖsszege: " + osszegzes() + "\n";
+        /* megszámolás */
+        kimenet += "kisebb, mint " + feltetel_01 + ": " + megszamolas(feltetel_01) + " db\n";
+        /* min */
+        kimenet += "Minimuma: " + minKivalasztas() + "\n";
+        /* max */
+        kimenet += "Maximuma: " + maxKivalasztas() + "\n";
+        /* kiváálasztás */
+        kimenet += (feltetel_02 + 1) + ". elem: " + kivalasztas(feltetel_02) + "\n";
+        /* eldöntésEgy */
+        kimenet += "Van-e olyan szám, ami nagyobb, mint " + feltetel_04 + "? ";
+        kimenet += eldontesEgy(feltetel_04) ? "Van.\n" : "Nincs.\n";
+        /* eldöntésMind */
+        /* linKeresés */
+        kimenet += "Első szám, ami nagyobb, mint " + feltetel_03 + "? ";
+        kimenet += linKereses(feltetel_03) == -1 ? "Nincs iyen elem!\n" : linKereses(feltetel_03) + ". helyen\n";      
         System.out.println(kimenet);
     }
 
     private static void feltoltes() {
-        for (int i = 0; i < sorozat.length; i++) {
+        for (int i = 0; i < N; i++) {
             sorozat[i] = (int)((Math.random() * (max - min)) + min);
         }
     }
