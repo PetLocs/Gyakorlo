@@ -9,8 +9,8 @@ public class Gyakorlo {
     static String kimenet = "";
     static int feltetel_01 = 4;
     static int feltetel_02 = 2;
-    static int feltetel_03 = 7;
-    static int feltetel_04 = 3;
+    static int feltetel_03 = 3;
+    static int feltetel_04 = 7;
     
     public static void main(String[] args) {
         feladatok();
@@ -28,9 +28,9 @@ public class Gyakorlo {
         minKivalasztas();
         maxKivalasztas();
         kivalasztas(feltetel_02); //paraméter indexű elem
-        eldontesEgy(feltetel_04);
+        eldontesEgy(feltetel_03);
         eldontesMind();
-        linKereses(feltetel_02); //első paraméternél nagyobb elem
+        linKereses(feltetel_04); //első paraméternél nagyobb elem
     }
 
     private static int osszegzes(){
@@ -81,7 +81,7 @@ public class Gyakorlo {
 
     private static boolean eldontesEgy(int feltetel) {
         int index = 0;
-        while (index < N && sorozat[index] <= feltetel) {
+        while (index < N && sorozat[index] >= feltetel) {
             index++;
         }
         if (index < N ){
@@ -92,6 +92,7 @@ public class Gyakorlo {
     }
     
     private static boolean eldontesMind() {
+        
         return false;
     }
     
@@ -127,12 +128,12 @@ public class Gyakorlo {
         /* kiváálasztás */
         kimenet += (feltetel_02 + 1) + ". elem: " + kivalasztas(feltetel_02) + "\n";
         /* eldöntésEgy */
-        kimenet += "Van-e olyan szám, ami nagyobb, mint " + feltetel_04 + "? ";
-        kimenet += eldontesEgy(feltetel_04) ? "Van.\n" : "Nincs.\n";
+        kimenet += "Van-e olyan szám, ami kisebb, mint " + feltetel_03 + "? ";
+        kimenet += eldontesEgy(feltetel_03) ? "Van.\n" : "Nincs.\n";
         /* eldöntésMind */
         /* linKeresés */
-        kimenet += "Első szám, ami nagyobb, mint " + feltetel_03 + "? ";
-        kimenet += linKereses(feltetel_03) == -1 ? "Nincs iyen elem!\n" : linKereses(feltetel_03) + ". helyen\n";      
+        kimenet += "Első szám, ami nagyobb, mint " + feltetel_04 + "? ";
+        kimenet += linKereses(feltetel_04) == -1 ? "Nincs iyen elem!\n" : linKereses(feltetel_04) + ". helyen\n";      
         System.out.println(kimenet);
     }
 
