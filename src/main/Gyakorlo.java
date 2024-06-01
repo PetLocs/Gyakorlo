@@ -7,6 +7,7 @@ public class Gyakorlo {
     static int min = -2;
     static int max = 10;
     static String kimenet = "";
+    static int feltetel = 4;
     
     public static void main(String[] args) {
         feladatok();
@@ -20,7 +21,7 @@ public class Gyakorlo {
 
     private static void progtetelek() {
         osszegzes();
-        megszamolas(4); //kisebb mint paraméter
+        megszamolas(feltetel); //kisebb mint paraméter
         minKivalasztas();
         maxKivalasztas();
         kivalasztas();
@@ -84,16 +85,20 @@ public class Gyakorlo {
     }
     
     private static void kiirKonzolra() {
-        kimenet += "A tömb elemei:\n";
+        kimenet += "A tömb elemei: \n[ ";
         for (int elem : sorozat) {
             kimenet += elem + " ";
-        }
+        }        
+        kimenet += "]\nÖsszege: " + osszegzes() + "\n";
+        kimenet += "kisebb, mint " + feltetel + ": " + megszamolas(feltetel) + " db\n";
+        kimenet += "Minimuma: " + minKivalasztas() + "\n";
+        kimenet += "Maximuma: " + maxKivalasztas() + "\n";
         System.out.println(kimenet);
     }
 
     private static void feltoltes() {
-        for (int elem : sorozat) {
-            elem = (int)((Math.random() * (max - min)) + min);
+        for (int i = 0; i < sorozat.length; i++) {
+            sorozat[i] = (int)((Math.random() * (max - min)) + min);
         }
     }
     
